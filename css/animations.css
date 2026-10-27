@@ -1,0 +1,84 @@
+@keyframes blink { 50% { opacity: .25; } }
+@keyframes toast-timer { from { transform: scaleX(1); } to { transform: scaleX(0); } }
+@keyframes dialog-in { from { opacity: 0; transform: translateY(16px); } }
+@keyframes marker-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.35) rotate(90deg); }
+}
+@keyframes img-reveal { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0 0 0 0); } }
+@keyframes img-settle { from { transform: scale(1.12); } to { transform: scale(1); } }
+@keyframes ticket-in { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+@keyframes wipe {
+  0% { transform: scaleX(0); transform-origin: left; }
+  45% { transform: scaleX(1); transform-origin: left; }
+  55% { transform: scaleX(1); transform-origin: right; }
+  100% { transform: scaleX(0); transform-origin: right; }
+}
+@keyframes rise { from { transform: translateY(105%); } to { transform: translateY(0); } }
+@keyframes fade-up { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@keyframes grid-in { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+@keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes view-in { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+
+/* ------------------------------------------------------------- page load */
+
+.grid-lines__inner span { animation: grid-in 1200ms var(--ease) both; }
+.grid-lines__inner span:nth-child(odd) { animation-delay: 80ms; }
+.grid-lines__inner span:nth-child(3n) { animation-delay: 160ms; }
+
+.hero__title .mask > span,
+.hero__brand .mask > span { animation: rise 1100ms var(--ease) both; }
+.hero__brand .mask > span { animation-delay: 150ms; }
+.hero__line--1 > span { animation-delay: 250ms; }
+.hero__line--2 > span { animation-delay: 340ms; }
+.hero__line--3 > span { animation-delay: 430ms; }
+.hero__line--4 > span { animation-delay: 520ms; }
+
+.hero__system, .hero__stats, .hero__foot, .hero__meta, .strip-wrap { animation: fade-up 900ms var(--ease) both 600ms; }
+.hero__stats { animation-delay: 720ms; }
+.hero__foot { animation-delay: 820ms; }
+.strip-wrap { animation-delay: 900ms; }
+
+.hero-map .draw { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 2400ms var(--ease) both; animation-delay: calc(300ms + var(--i, 0) * 60ms); }
+.hero-map__route.draw { animation-duration: 1800ms; animation-delay: 1700ms; }
+.hero-map__water, .hero-map__blocks { animation: fade-up 1600ms var(--ease) both 200ms; }
+.hero-map__point { opacity: 0; animation: fade 700ms var(--ease) forwards; animation-delay: calc(1200ms + var(--i) * 70ms); }
+
+/* view switch */
+/* no fill-mode: a lingering transform would trap the fixed booking dock */
+[data-views].is-entering:not(.hero):not(.network) { animation: view-in 640ms var(--ease); }
+
+/* scroll reveals */
+[data-reveal] { transition: opacity 900ms var(--ease), transform 900ms var(--ease); }
+[data-reveal]:not(.is-in) { opacity: 0; transform: translateY(24px); }
+.mask[data-reveal] { opacity: 1; transform: none; }
+.mask[data-reveal] > span { transition: transform 1000ms var(--ease); }
+.mask[data-reveal]:not(.is-in) > span { transform: translateY(105%); }
+.about__title .mask:nth-child(2) > span { transition-delay: 90ms; }
+.about__title .mask:nth-child(3) > span { transition-delay: 180ms; }
+
+.confirm.is-open .confirm__title .mask > span { animation: rise 900ms var(--ease) both 520ms; }
+.confirm.is-open .confirm__title .mask:last-child > span { animation-delay: 600ms; }
+.confirm.is-open .confirm__id,
+.confirm.is-open .confirm__dl,
+.confirm.is-open .confirm__actions,
+.confirm.is-open .confirm__kicker,
+.confirm.is-open .confirm__note { animation: fade-up 700ms var(--ease) both 760ms; }
+.confirm.is-open .confirm__dl { animation-delay: 840ms; }
+.confirm.is-open .confirm__actions { animation-delay: 920ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 1ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+    transition-delay: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+  .hero-map .draw, .map-route { stroke-dashoffset: 0 !important; }
+  .hero__map-inner { transform: none !important; }
+  .marker.is-active .marker__anchor { animation: none; }
+  [data-reveal]:not(.is-in) { opacity: 1; transform: none; }
+}

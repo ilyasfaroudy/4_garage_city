@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>GARAGE//CITY — Urban Automotive Space Network</title>
+  <meta name="description" content="GARAGE//CITY — городская сеть автомобильных пространств: детейлинг, мойка, подъёмники, диагностика, фотостудии и приватные гаражи. Учебный демо-проект.">
+  <meta name="theme-color" content="#050505">
+  <link rel="icon" href="./assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/variables.css">
+  <link rel="stylesheet" href="./css/layout.css">
+  <link rel="stylesheet" href="./css/components.css">
+  <link rel="stylesheet" href="./css/views.css">
+  <link rel="stylesheet" href="./css/animations.css">
+  <link rel="stylesheet" href="./css/responsive.css">
+  <script type="module" src="./js/app.js"></script>
+</head>
+<body class="is-loading" data-view="explore">
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+
+  <div class="grid-lines" aria-hidden="true">
+    <div class="container grid-lines__inner">
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+  </div>
+
+  <header class="topbar">
+    <p class="topbar__notice">
+      <span class="topbar__notice-tag">DEMO</span>
+      <span>Учебное демо — реальная бронь и оплата не выполняются</span>
+    </p>
+    <div class="container topbar__main">
+      <a class="brand" href="#explore" data-nav-brand aria-label="GARAGE//CITY — на главную">GARAGE<span>//</span>CITY</a>
+      <nav class="nav" aria-label="Основная навигация">
+        <a class="nav__link" href="#explore" data-nav="explore"><span class="nav__idx">01</span>EXPLORE</a>
+        <a class="nav__link" href="#spaces" data-nav="spaces"><span class="nav__idx">02</span>SPACES</a>
+        <a class="nav__link" href="#booking" data-nav="booking"><span class="nav__idx">03</span>BOOKING</a>
+        <a class="nav__link" href="#bookings" data-nav="bookings"><span class="nav__idx">04</span>MY BOOKINGS <span class="nav__count" data-bookings-count>00</span></a>
+        <a class="nav__link" href="#about" data-nav="about"><span class="nav__idx">05</span>ABOUT</a>
+      </nav>
+      <p class="topbar__clock"><span class="dot" aria-hidden="true"></span>SPB <span data-clock>--:--:--</span></p>
+    </div>
+    <p class="storage-note" data-storage-note hidden role="status">STORAGE OFFLINE — localStorage недоступен, брони не сохранятся после перезагрузки.</p>
+  </header>
+
+  <main id="main" tabindex="-1">
+
+    <!-- 01 / EXPLORE — statement -->
+    <section class="hero" data-hero data-views="explore" aria-labelledby="heroTitle">
+      <div class="hero__map" aria-hidden="true">
+        <div class="hero__map-inner" data-hero-parallax>
+          <svg class="hero-map" data-hero-map preserveAspectRatio="xMidYMid slice"></svg>
+        </div>
+      </div>
+
+      <div class="container hero__grid">
+        <div class="hero__meta">
+          <span class="sid">§01 / EXPLORE</span>
+          <span class="hero__coord">59.9386° N — 30.3141° E</span>
+          <span class="hero__coord">GRID 12 × 1600</span>
+        </div>
+
+        <h1 class="hero__title" id="heroTitle" tabindex="-1" data-view-heading="explore">
+          <span class="hero__brand"><span class="mask"><span>GARAGE//CITY</span></span></span>
+          <span class="mask hero__line hero__line--1"><span>BOOK</span></span>
+          <span class="mask hero__line hero__line--2"><span>YOUR</span></span>
+          <span class="mask hero__line hero__line--3"><span><em>next</em></span></span>
+          <span class="mask hero__line hero__line--4"><span>STOP.</span></span>
+        </h1>
+
+        <dl class="hero__system">
+          <div><dt>SYSTEM</dt><dd>GC-01</dd></div>
+          <div><dt>STATUS</dt><dd><span class="dot" aria-hidden="true"></span>ONLINE</dd></div>
+          <div><dt>CITY</dt><dd>SAINT PETERSBURG</dd></div>
+          <div><dt>UPDATED</dt><dd>LIVE <span data-clock>--:--:--</span></dd></div>
+        </dl>
+
+        <ul class="hero__stats">
+          <li><span class="hero__stat-num">12</span><span>SPACES</span></li>
+          <li><span class="hero__stat-num">08</span><span>SERVICE TYPES</span></li>
+          <li><span class="hero__stat-num">01</span><span>CITY NETWORK</span></li>
+          <li><span class="hero__stat-num hero__stat-num--live"><span class="dot" aria-hidden="true"></span></span><span>LIVE AVAILABILITY</span></li>
+        </ul>
+
+        <div class="hero__foot">
+          <p class="hero__lead">URBAN AUTOMOTIVE SPACE NETWORK. Детейлинг, подъёмники, диагностика, студии и приватные гаражи — одна сеть, один пропуск, почасовая бронь.</p>
+          <a class="cta" href="#explore" data-action="explore-network" data-cursor="view">
+            <span class="cta__label">EXPLORE NETWORK</span><span class="cta__arrow" aria-hidden="true">↘</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="container strip-wrap">
+        <p class="strip__title"><span>INDEX</span><span>12 / 12 NODES</span></p>
+        <ul class="strip" data-index-strip aria-label="Все пространства сети"></ul>
+      </div>
+    </section>
+
+    <!-- 01–02 / NETWORK — exploration + comparison -->
+    <section class="network" id="network" data-network data-views="explore spaces" data-layout="map" aria-labelledby="networkTitle">
+      <div class="container network__head">
+        <div class="network__heading">
+          <span class="sid sid--dark">§02 / NETWORK</span>
+          <h2 class="network__title" id="networkTitle" tabindex="-1" data-view-heading="spaces">CITY NETWORK</h2>
+        </div>
+        <p class="network__count" aria-live="polite"><span data-result-count>12</span><span class="network__count-of">/ 12 SPACES</span></p>
+        <div class="network__tools">
+          <div class="seg" role="tablist" aria-label="Режим отображения">
+            <button type="button" class="seg__btn" role="tab" data-layout-btn="map" aria-selected="true" aria-controls="networkBody">MAP</button>
+            <button type="button" class="seg__btn" role="tab" data-layout-btn="list" aria-selected="false" aria-controls="networkBody">LIST</button>
+          </div>
+          <button type="button" class="btn btn--ghost-light btn-filters" data-action="open-filters" aria-expanded="false" aria-controls="filters">
+            FILTERS <span data-filter-badge></span>
+          </button>
+        </div>
+      </div>
+
+      <div class="container network__body" id="networkBody" role="tabpanel">
+        <aside class="filters" id="filters" data-filters aria-label="Фильтры пространств"></aside>
+
+        <div class="map" data-map>
+          <div class="map__stage" data-map-stage tabindex="0" data-cursor="drag"
+            aria-label="Карта сети GARAGE//CITY. Стрелки — перемещение, плюс и минус — масштаб, ноль — сброс.">
+            <svg class="map__svg" data-map-svg aria-hidden="true"></svg>
+            <div class="map__markers" data-map-markers></div>
+          </div>
+
+          <div class="map__ui map__ui--tl" aria-hidden="true">
+            <span>SPB / NETWORK SCHEME</span>
+            <span data-map-coords>X 0000 · Y 0000</span>
+          </div>
+          <div class="map__ui map__ui--controls">
+            <button type="button" class="map__btn" data-map-action="zoom-in" aria-label="Приблизить">+</button>
+            <button type="button" class="map__btn" data-map-action="zoom-out" aria-label="Отдалить">−</button>
+            <button type="button" class="map__btn map__btn--text" data-map-action="reset" aria-label="Сбросить вид карты">RESET</button>
+            <span class="map__zoom" data-map-zoom aria-hidden="true">Z 1.00</span>
+          </div>
+          <div class="map__ui map__ui--legend" aria-hidden="true">
+            <span><i class="lgm lgm--free"></i>AVAILABLE</span>
+            <span><i class="lgm lgm--active"></i>ACTIVE</span>
+            <span><i class="lgm lgm--full"></i>BOOKED TODAY</span>
+            <span><i class="lgm lgm--locked"></i>LOCKED</span>
+            <span class="map__scale"><i></i>1 KM</span>
+          </div>
+          <p class="map__hint" data-map-hint aria-hidden="true">CTRL / ⌘ + SCROLL — ZOOM</p>
+          <div class="map__empty" role="status">
+            <p class="map__empty-title">00 RESULTS</p>
+            <p>На карте нет пространств с такими параметрами.</p>
+            <button type="button" class="btn btn--light" data-action="reset-filters">RESET FILTERS</button>
+          </div>
+        </div>
+
+        <div class="list" data-list>
+          <div class="list__head" role="group" aria-label="Сортировка">
+            <span class="list__head-label">SORT</span>
+            <button type="button" class="sort" data-sort="code" aria-pressed="true">NO</button>
+            <button type="button" class="sort" data-sort="price" aria-pressed="false">RATE</button>
+            <button type="button" class="sort" data-sort="rating" aria-pressed="false">RATING</button>
+          </div>
+          <div class="list__cols" aria-hidden="true">
+            <span>NO</span><span>SPACE</span><span>SERVICES</span><span>RATE</span><span>NEXT SLOT</span><span>RTG</span><span></span>
+          </div>
+          <ul class="list__body" data-list-body aria-label="Список пространств"></ul>
+          <div class="list-preview" data-list-preview aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 / BOOKING — configuration -->
+    <section class="booking" data-booking data-views="booking" aria-labelledby="bookingTitle" hidden>
+      <div class="container booking__head">
+        <span class="sid">§03 / BOOKING</span>
+        <h2 class="booking__title" id="bookingTitle" tabindex="-1" data-view-heading="booking">
+          <span>CONFIGURE</span><span>RESERVATION</span>
+        </h2>
+        <p class="booking__code" aria-hidden="true"><span data-booking-code>00</span></p>
+        <p class="booking__formula">SPACE + SERVICE + TIME SLOT + DURATION + EXTRAS</p>
+      </div>
+
+      <div class="container booking__grid">
+        <ol class="steps" data-steps></ol>
+
+        <aside class="summary" aria-labelledby="summaryTitle">
+          <div class="summary__top">
+            <span class="step__num">07</span>
+            <h3 class="summary__title" id="summaryTitle">CONFIRM</h3>
+            <span class="summary__progress" data-sum-progress>0/4 REQUIRED</span>
+          </div>
+          <span class="summary__bar" data-sum-progress-bar aria-hidden="true"></span>
+
+          <div class="summary__pass">
+            <div class="summary__pass-head">
+              <span class="label">PASS PREVIEW</span>
+              <span class="summary__code" data-sum-code>—</span>
+            </div>
+            <p class="summary__space" data-sum-space>NO SPACE SELECTED</p>
+            <dl class="summary__dl">
+              <div><dt>SERVICE</dt><dd data-sum-service>—</dd></div>
+              <div><dt>DATE</dt><dd data-sum-date>—</dd></div>
+              <div><dt>TIME</dt><dd data-sum-time>—</dd></div>
+              <div><dt>DURATION</dt><dd data-sum-duration>—</dd></div>
+              <div class="summary__wide"><dt>EXTRAS</dt><dd data-sum-extras>NONE</dd></div>
+            </dl>
+          </div>
+
+          <dl class="breakdown" aria-live="polite">
+            <div><dt>SPACE</dt><dd><span class="roll" data-roll="space"></span></dd></div>
+            <div><dt>SERVICE</dt><dd><span class="roll" data-roll="service"></span></dd></div>
+            <div><dt>EXTRAS</dt><dd><span class="roll" data-roll="extras"></span></dd></div>
+            <div class="breakdown__total"><dt>TOTAL</dt><dd><span class="roll" data-roll="total"></span><span class="breakdown__cur">₽</span></dd></div>
+          </dl>
+          <p class="summary__formula" data-sum-formula></p>
+
+          <button type="button" class="btn btn--burgundy btn--wide btn--book" data-action="submit-booking" data-cursor="book">
+            <span data-submit-label>BOOK SPACE</span><span aria-hidden="true">→</span>
+          </button>
+          <p class="demo-note">Учебное демо — реальная бронь и оплата не выполняются</p>
+        </aside>
+      </div>
+
+      <div class="dock" aria-label="Итог брони">
+        <div class="dock__total"><span class="label">TOTAL</span><span><span class="roll" data-roll="dock"></span> ₽</span></div>
+        <button type="button" class="btn btn--burgundy" data-action="submit-booking" data-cursor="book">
+          <span data-submit-label>BOOK</span><span aria-hidden="true">→</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- 04 / MY BOOKINGS — management -->
+    <section class="passes" data-passes-root data-views="bookings" aria-labelledby="passesTitle" hidden>
+      <div class="container passes__head">
+        <span class="sid sid--dark">§04 / MY BOOKINGS</span>
+        <h2 class="passes__title" id="passesTitle" tabindex="-1" data-view-heading="bookings"><span>ACCESS</span><span>PASSES</span></h2>
+        <dl class="passes__stats">
+          <div><dt>ACTIVE</dt><dd data-passes-count>00</dd></div>
+          <div><dt>ALL TIME</dt><dd data-passes-all>00</dd></div>
+          <div><dt>TOTAL</dt><dd data-passes-total>0 ₽</dd></div>
+        </dl>
+        <button type="button" class="btn btn--ghost-light passes__reset" data-action="reset-demo">RESET DEMO</button>
+      </div>
+      <ul class="container passes__list" data-passes aria-live="polite"></ul>
+      <p class="container passes__note">Брони хранятся локально в этом браузере (localStorage / garageCityBookings). Учебное демо — реальная бронь и оплата не выполняются.</p>
+    </section>
+
+    <!-- 05 / ABOUT — editorial closure -->
+    <section class="about" data-views="about" aria-labelledby="aboutTitle" hidden>
+      <div class="container about__grid">
+        <span class="sid">§05 / ABOUT</span>
+        <h2 class="about__title" id="aboutTitle" tabindex="-1" data-view-heading="about">
+          <span class="mask" data-reveal><span>GARAGE//CITY</span></span>
+          <span class="mask" data-reveal><span>IS A NETWORK,</span></span>
+          <span class="mask about__title-muted" data-reveal><span>NOT A DIRECTORY.</span></span>
+        </h2>
+        <div class="about__text" data-reveal>
+          <p>Городу не хватает не автосервисов, а мест, где с машиной можно спокойно работать. GARAGE//CITY соединяет боксы, студии и гаражи в одну систему с общими правилами, прозрачной почасовой ценой и единым пропуском.</p>
+          <p>Пространство бронируется как слот в расписании: выбираете точку на карте, услугу, время и опции — и получаете цифровой пропуск. Без звонков, без «перезвоним», без поиска по чатам.</p>
+        </div>
+        <ul class="about__stats" data-reveal>
+          <li><span>12</span>SPACES</li>
+          <li><span>08</span>SERVICES</li>
+          <li><span>01</span>CITY</li>
+          <li><span>24/7</span>SYSTEM</li>
+        </ul>
+        <ol class="about__principles" data-reveal>
+          <li><span>01</span><strong>ONE NETWORK</strong><p>Единые стандарты оборудования, света и чистоты в каждой точке.</p></li>
+          <li><span>02</span><strong>HOURLY LOGIC</strong><p>Платите за время и услугу, а не за пакет, который вам не нужен.</p></li>
+          <li><span>03</span><strong>OWNER FIRST</strong><p>Работайте сами или с мастером — пространство подстраивается под задачу.</p></li>
+        </ol>
+        <dl class="about__colophon" data-reveal>
+          <div><dt>TYPE</dt><dd>IBM Plex Mono / Times New Roman Italic</dd></div>
+          <div><dt>COLOR</dt><dd><i style="background:#050505"></i><i style="background:#F3F3F0"></i><i style="background:#681421"></i>#050505 / #F3F3F0 / #681421</dd></div>
+          <div><dt>GRID</dt><dd>12 COL / 1600 MAX</dd></div>
+          <div><dt>STACK</dt><dd>HTML / CSS / VANILLA JS MODULES</dd></div>
+        </dl>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__row">
+      <span class="footer__brand">GARAGE//CITY</span>
+      <span>2026</span>
+      <span>DEMO PROJECT</span>
+      <span>VANILLA JS</span>
+      <a href="#main" class="footer__top" data-action="top">BACK TO TOP <span aria-hidden="true">↑</span></a>
+    </div>
+  </footer>
+
+  <!-- Space detail drawer (bottom sheet on mobile) -->
+  <aside class="drawer" data-drawer role="dialog" aria-modal="false" aria-labelledby="drawerTitle" aria-hidden="true" inert>
+    <div class="drawer__bar">
+      <span class="drawer__bar-id">SPACE / <b data-drawer-code>—</b></span>
+      <span class="drawer__bar-sys" aria-hidden="true">GC/NET/PANEL</span>
+      <button type="button" class="drawer__close" data-action="close-drawer" data-drawer-close data-cursor="close" aria-label="Закрыть панель пространства">CLOSE <span aria-hidden="true">×</span></button>
+    </div>
+    <div class="drawer__scroll" data-drawer-content></div>
+    <div class="drawer__foot" data-drawer-foot></div>
+  </aside>
+  <div class="scrim" data-scrim aria-hidden="true"></div>
+
+  <!-- Booking confirmation -->
+  <div class="confirm" data-confirm role="dialog" aria-modal="true" aria-labelledby="confirmTitle" hidden>
+    <span class="confirm__wipe" aria-hidden="true"></span>
+    <div class="container confirm__inner">
+      <p class="confirm__kicker">§03 / STATUS 200 / RESERVATION</p>
+      <h2 class="confirm__title" id="confirmTitle" tabindex="-1" data-confirm-title>
+        <span class="mask"><span>RESERVATION</span></span>
+        <span class="mask"><span>CONFIRMED</span></span>
+      </h2>
+      <p class="confirm__id" data-c-id></p>
+      <dl class="confirm__dl">
+        <div><dt>SPACE</dt><dd data-c-space></dd></div>
+        <div><dt>DATE / TIME</dt><dd data-c-time></dd></div>
+        <div><dt>TOTAL</dt><dd data-c-total></dd></div>
+      </dl>
+      <div class="confirm__actions">
+        <button type="button" class="btn btn--light" data-action="open-bookings" data-cursor="view">OPEN MY BOOKINGS <span aria-hidden="true">→</span></button>
+        <button type="button" class="btn btn--ghost-light" data-action="close-confirm">BOOK ANOTHER</button>
+      </div>
+      <p class="confirm__note">Учебное демо — реальная бронь и оплата не выполняются</p>
+    </div>
+  </div>
+
+  <dialog class="dialog" data-dialog aria-labelledby="dialogTitle">
+    <form method="dialog" class="dialog__form">
+      <p class="dialog__kicker">SYSTEM / CONFIRM</p>
+      <h2 class="dialog__title" id="dialogTitle" data-dialog-title>RESET DEMO?</h2>
+      <p class="dialog__text" data-dialog-text></p>
+      <div class="dialog__actions">
+        <button type="submit" value="cancel" class="btn btn--ghost" data-dialog-cancel>CANCEL</button>
+        <button type="submit" value="confirm" class="btn btn--burgundy" data-dialog-confirm>CONFIRM</button>
+      </div>
+    </form>
+  </dialog>
+
+  <nav class="tabbar" aria-label="Мобильная навигация">
+    <a href="#explore" data-nav="explore"><span>01</span>EXPLORE</a>
+    <a href="#spaces" data-nav="spaces"><span>02</span>SPACES</a>
+    <a href="#booking" data-nav="booking"><span>03</span>BOOK</a>
+    <a href="#bookings" data-nav="bookings"><span>04</span>PASSES <b data-bookings-count>00</b></a>
+    <a href="#about" data-nav="about"><span>05</span>ABOUT</a>
+  </nav>
+
+  <div class="toasts" data-toasts aria-live="polite"></div>
+  <div class="cursor" data-cursor-el aria-hidden="true"><span class="cursor__dot"></span><span class="cursor__label"></span></div>
+
+  <noscript><p class="noscript">GARAGE//CITY требует JavaScript. Учебное демо — реальная бронь и оплата не выполняются.</p></noscript>
+</body>
+</html>
